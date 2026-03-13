@@ -27,6 +27,7 @@ public class Province {
     @Column(nullable = false, unique = true, length = 10)
     private String code;
 
+    @Builder.Default
     @OneToMany(mappedBy = "province", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Location> locations = new HashSet<>();
+    private Set<District> districts = new HashSet<>();
 }

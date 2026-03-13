@@ -36,7 +36,10 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
+    public User createUser(@RequestBody User user, @RequestParam(required = false) String villageCode) {
+        if (villageCode != null) {
+            return userService.createUser(user, villageCode);
+        }
         return userService.save(user);
     }
 

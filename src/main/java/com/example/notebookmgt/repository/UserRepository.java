@@ -14,7 +14,13 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // Method name query derivation
     List<User> findDistinctByNotebooksLocationProvinceNameOrNotebooksLocationProvinceCode(String name, String code);
 
-    // Custom JPQL version for clarity and performance
-    @Query("SELECT DISTINCT u FROM User u JOIN u.notebooks n JOIN n.location l JOIN l.province p WHERE p.name = :name OR p.code = :code")
+    // Custom JPQL version for the new hierarchy
+    @Query("SELECT DISTINCT u FROM User u " +
+           "JOIN u.village v " +
+           "JOIN v.cell c " +
+           "JOIN c.sector s " +
+           "JOIN s.district d " +
+           "JOIN d.province p " +
+           "WHERE p.name = :name OR p.code = :code")
     List<User> findUsersByProvince(@Param("name") String name, @Param("code") String code);
 }

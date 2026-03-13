@@ -11,10 +11,12 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final AdministrativeService administrativeService;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, AdministrativeService administrativeService) {
         this.userRepository = userRepository;
+        this.administrativeService = administrativeService;
     }
 
     public List<User> findAll() {
@@ -30,6 +32,12 @@ public class UserService {
     }
 
     public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    public User createUser(User user, String villageIdentity) {
+        administrativeService.findVillageByNameOrCode(villageIdentity)
+                .ifPresent(user::setVillage);
         return userRepository.save(user);
     }
 
