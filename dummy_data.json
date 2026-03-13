@@ -1,0 +1,47 @@
+{
+  "City of Kigali": {
+    "Nyarugenge": {
+      "Nyarugenge": {
+        "Kiyovu": [
+          "Ubumwe",
+          "Rugunga",
+          "Inyarurembo"
+        ],
+        "Agatare": [
+          "Agatare I",
+          "Agatare II"
+        ]
+      }
+    },
+    "Gasabo": {
+      "Kacyiru": {
+        "Kamatamu": [
+          "Kamatamu I",
+          "Kamatamu II"
+        ],
+        "Kibaza": [
+          "Kibaza Village"
+        ]
+      }
+    }
+  },
+  "Northern Province": {
+    "Musanze": {
+      "Muhoza": {
+        "Mpenge": [
+          "Mpenge Village A",
+          "Mpenge Village B"
+        ]
+      }
+    }
+  },
+  "Western Province": {
+    "Rubavu": {
+      "Gisenyi": {
+        "Nengo": [
+          "Nengo Village"
+        ]
+      }
+    }
+  }
+}
